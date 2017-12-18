@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/application">
+  <head>
+    <title>Editing Player</title>
+  </head>
+  <body>
+    <div class="container" layout:fragment="content">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">Editing Player</div>
+            <div class="panel-body">
+              <form th:action="@{/players/{id}(id=*{id})}" th:method="put" th:object="${player}">
+                <div class="form-group">
+                  <label class="control-label">ID</label>
+                  <p class="form-control-static" th:text="*{id}"></p>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">名前</label>
+                  <input class="form-control" type="text" th:field="*{name}" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">年齢</label>
+                  <input class="form-control" type="number" th:field="*{age}" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">チーム名</label>
+                  <input class="form-control" type="text" th:field="*{team}" />
+                </div>
+                <div class="form-group">
+                  <label class="control-label">守備位置</label>
+                  <input class="form-control" type="text" th:field="*{position}" />
+                </div>
+                <button class="btn btn-default pull-right" type="submit">更新</button>
+              </form>
+            </div>
+          </div>
+          <div class="pull-right">
+            <a class="btn btn-link" href="/players">一覧画面へ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
