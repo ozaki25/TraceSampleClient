@@ -18,7 +18,7 @@ public class PlayerRepository {
 
     @SuppressWarnings("unchecked")
     public List<Player> findAll() {
-        return restOperations.getForObject(PLAYER_API_URL, (Class<? extends List<Player>>)List.class);
+        return restOperations.getForObject(PLAYER_API_URL, List.class);
     }
 
     public Player findOne(Long id) {
